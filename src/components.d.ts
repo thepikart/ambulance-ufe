@@ -6,32 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface ApAmbulanceWlList {
+    interface AppAmbulanceWlList {
     }
 }
 declare global {
-    interface HTMLApAmbulanceWlListElement extends Components.ApAmbulanceWlList, HTMLStencilElement {
+    interface HTMLAppAmbulanceWlListElement extends Components.AppAmbulanceWlList, HTMLStencilElement {
     }
-    var HTMLApAmbulanceWlListElement: {
-        prototype: HTMLApAmbulanceWlListElement;
-        new (): HTMLApAmbulanceWlListElement;
+    var HTMLAppAmbulanceWlListElement: {
+        prototype: HTMLAppAmbulanceWlListElement;
+        new (): HTMLAppAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
-        "ap-ambulance-wl-list": HTMLApAmbulanceWlListElement;
+        "app-ambulance-wl-list": HTMLAppAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
-    interface ApAmbulanceWlList {
+    interface AppAmbulanceWlList {
     }
     interface IntrinsicElements {
-        "ap-ambulance-wl-list": ApAmbulanceWlList;
+        "app-ambulance-wl-list": AppAmbulanceWlList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ap-ambulance-wl-list": LocalJSX.IntrinsicElements["ap-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLApAmbulanceWlListElement>;
+            "app-ambulance-wl-list": LocalJSX.IntrinsicElements["app-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLAppAmbulanceWlListElement>;
         }
     }
 }
