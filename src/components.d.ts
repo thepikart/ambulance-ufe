@@ -6,24 +6,98 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AppAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface AppAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface AppAmbulanceWlList {
     }
 }
+export interface AppAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAppAmbulanceWlEditorElement;
+}
+export interface AppAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAppAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLAppAmbulanceWlAppElement extends Components.AppAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLAppAmbulanceWlAppElement: {
+        prototype: HTMLAppAmbulanceWlAppElement;
+        new (): HTMLAppAmbulanceWlAppElement;
+    };
+    interface HTMLAppAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLAppAmbulanceWlEditorElement extends Components.AppAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAppAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLAppAmbulanceWlEditorElement, ev: AppAmbulanceWlEditorCustomEvent<HTMLAppAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAppAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLAppAmbulanceWlEditorElement, ev: AppAmbulanceWlEditorCustomEvent<HTMLAppAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAppAmbulanceWlEditorElement: {
+        prototype: HTMLAppAmbulanceWlEditorElement;
+        new (): HTMLAppAmbulanceWlEditorElement;
+    };
+    interface HTMLAppAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLAppAmbulanceWlListElement extends Components.AppAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAppAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLAppAmbulanceWlListElement, ev: AppAmbulanceWlListCustomEvent<HTMLAppAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAppAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLAppAmbulanceWlListElement, ev: AppAmbulanceWlListCustomEvent<HTMLAppAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAppAmbulanceWlListElement: {
         prototype: HTMLAppAmbulanceWlListElement;
         new (): HTMLAppAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "app-ambulance-wl-app": HTMLAppAmbulanceWlAppElement;
+        "app-ambulance-wl-editor": HTMLAppAmbulanceWlEditorElement;
         "app-ambulance-wl-list": HTMLAppAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppAmbulanceWlList {
+    interface AppAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
     }
+    interface AppAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: AppAmbulanceWlEditorCustomEvent<string>) => void;
+    }
+    interface AppAmbulanceWlList {
+        "onEntry-clicked"?: (event: AppAmbulanceWlListCustomEvent<string>) => void;
+    }
+
+    interface AppAmbulanceWlAppAttributes {
+        "basePath": string;
+    }
+    interface AppAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "app-ambulance-wl-app": Omit<AppAmbulanceWlApp, keyof AppAmbulanceWlAppAttributes> & { [K in keyof AppAmbulanceWlApp & keyof AppAmbulanceWlAppAttributes]?: AppAmbulanceWlApp[K] } & { [K in keyof AppAmbulanceWlApp & keyof AppAmbulanceWlAppAttributes as `attr:${K}`]?: AppAmbulanceWlAppAttributes[K] } & { [K in keyof AppAmbulanceWlApp & keyof AppAmbulanceWlAppAttributes as `prop:${K}`]?: AppAmbulanceWlApp[K] };
+        "app-ambulance-wl-editor": Omit<AppAmbulanceWlEditor, keyof AppAmbulanceWlEditorAttributes> & { [K in keyof AppAmbulanceWlEditor & keyof AppAmbulanceWlEditorAttributes]?: AppAmbulanceWlEditor[K] } & { [K in keyof AppAmbulanceWlEditor & keyof AppAmbulanceWlEditorAttributes as `attr:${K}`]?: AppAmbulanceWlEditorAttributes[K] } & { [K in keyof AppAmbulanceWlEditor & keyof AppAmbulanceWlEditorAttributes as `prop:${K}`]?: AppAmbulanceWlEditor[K] };
         "app-ambulance-wl-list": AppAmbulanceWlList;
     }
 }
@@ -31,6 +105,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-ambulance-wl-app": LocalJSX.IntrinsicElements["app-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLAppAmbulanceWlAppElement>;
+            "app-ambulance-wl-editor": LocalJSX.IntrinsicElements["app-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLAppAmbulanceWlEditorElement>;
             "app-ambulance-wl-list": LocalJSX.IntrinsicElements["app-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLAppAmbulanceWlListElement>;
         }
     }
