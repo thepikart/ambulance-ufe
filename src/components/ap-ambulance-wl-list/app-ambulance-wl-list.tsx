@@ -11,7 +11,7 @@ export class AppAmbulanceWlList {
   private async getWaitingPatientsAsync() {
     return await Promise.resolve(
       [{
-        name: 'Jožko Púčik',
+        name: 'RNDr. Pavlína Musilová',
         patientId: '10001',
         estimatedStart: new Date(Date.now() + 65 * 60),
         estimatedDurationMinutes: 15,
