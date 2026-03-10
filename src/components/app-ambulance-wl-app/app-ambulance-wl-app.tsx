@@ -11,15 +11,16 @@ declare global {
 })
 
 export class AppAmbulanceWlApp {
-    @State() private relativePath = "";
-
-  @Prop() basePath: string="";
+  @State() private relativePath = "";
+  @Prop() basePath: string = "";
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
 
     const toRelative = (path: string) => {
-      if (path.startsWith( baseUri)) {
+      if (path.startsWith(baseUri)) {
         this.relativePath = path.slice(baseUri.length)
       } else {
         this.relativePath = ""
@@ -54,8 +55,8 @@ export class AppAmbulanceWlApp {
           ? <app-ambulance-wl-editor entry-id={entryId}
             oneditor-closed={() => navigate("./list")} >
           </app-ambulance-wl-editor>
-          : <app-ambulance-wl-list
-              onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
+          : <app-ambulance-wl-list ambulance-id={this.ambulanceId} api-base={this.apiBase}
+            onentry-clicked={(ev: CustomEvent<string>) => navigate("./entry/" + ev.detail)} >
           </app-ambulance-wl-list>
         }
 
