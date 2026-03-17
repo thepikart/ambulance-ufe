@@ -36,6 +36,7 @@ export class AppAmbulanceWlApp {
     toRelative(location.pathname)
   }
   render() {
+    console.debug("app-ambulance-wl-app.render() - path: %s", this.relativePath);
     let element = "list"
     let entryId = "@new"
 
