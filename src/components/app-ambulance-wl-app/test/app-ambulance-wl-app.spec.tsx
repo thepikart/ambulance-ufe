@@ -1,7 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { AppAmbulanceWlApp } from '../app-ambulance-wl-app';
 
-describe('<pfx>-ambulance-wl-app', () => {
+describe('app-ambulance-wl-app', () => {
 
   it('renders editor', async () => {
     const page = await newSpecPage({
